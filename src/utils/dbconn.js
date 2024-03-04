@@ -36,7 +36,7 @@ const dbConnect = async () => {
     cached.promise = null;
     throw e;
   }
-
+  console.log("db connected successfully");
   return cached.conn;
 };
 
