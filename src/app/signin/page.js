@@ -3,14 +3,18 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import styles from "@/app/styles/common.module.css";
 import Head from "next/head";
 import { metadata } from "@/app/signin/metadata";
+import Link from "next/link";
 export default function Component() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <>
-        <h3>signed in as {session.user.email}</h3>
-        <button onClick={() => signOut()}>Sign Out</button>
-      </>
+      <center className={styles.signedin}>
+        <h2>signed in as {session.user.email}</h2>
+        <Link href="/">
+          <button>Go to homepage</button>
+        </Link>
+        {/* <button onClick={() => signOut()}>Sign Out</button> */}
+      </center>
     );
   }
   return (

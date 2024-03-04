@@ -4,8 +4,9 @@ import styles from "@/app/styles/navbar.module.css";
 import { CgCloseR, CgMenu } from "react-icons/cg";
 import Link from "next/link";
 import { useState } from "react";
-
+import { useSession, signOut } from "next-auth/react";
 const Nav = () => {
+  const { data: session } = useSession();
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <>
@@ -49,15 +50,33 @@ const Nav = () => {
                 Contact
               </Link>
             </li>
-            <li className={styles.navbarItem}>
-              <Link
-                className={styles.navbarLink}
-                onClick={() => setOpenMenu(false)}
-                href="/signin"
-              >
-                Sign in
-              </Link>
-            </li>
+            {session ? (
+              <>
+                {" "}
+                <li className={styles.navbarItem}>
+                  <Link
+                    className={styles.navbarLink}
+                    onClick={() => signOut()}
+                    href="/signout"
+                  >
+                    Sign Out
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                {" "}
+                <li className={styles.navbarItem}>
+                  <Link
+                    className={styles.navbarLink}
+                    onClick={() => setOpenMenu(false)}
+                    href="/signin"
+                  >
+                    Sign in
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
 
           {/* //nav icon */}

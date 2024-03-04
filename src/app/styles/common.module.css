@@ -209,3 +209,6 @@
 .providerbutton {
   margin: 10px 0;
 }
+.signedin {
+  height: 50vh;
+}
