@@ -5,12 +5,13 @@ const handler = NextAuth({
   providers: [
     // OAuth authentication providers...
     GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+      clientId: "6e1f1f40939a75bcf7f4",
+      clientSecret: "34f2ddc7a146fda05e32f5fd9c6a803c98150423",
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId:
+        "80375417783-iudrprnsiddhoa33ln6gt9irad7elvc0.apps.googleusercontent.com",
+      clientSecret: "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",
     }),
   ],
 });
