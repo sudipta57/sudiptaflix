@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "@/app/styles/common.module.css";
 import MovieCard from "@/app/components/movieCard";
-import Loading from "../loading";
 
 const Movie = async () => {
   const url = process.env.RAPID_KEY;
