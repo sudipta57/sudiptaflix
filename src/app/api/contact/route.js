@@ -13,7 +13,7 @@ export async function POST(req, res) {
 
     // Establish a database connection
     const connectDB = await dbConnect();
-
+    console.log("db connected");
     // Log a message to indicate successful database connection
 
     // Check if request body and database connection are valid
